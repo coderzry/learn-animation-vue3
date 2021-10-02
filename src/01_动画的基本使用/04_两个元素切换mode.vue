@@ -9,21 +9,15 @@
         in-out：新元素先进行过渡，完成之后当前元素过渡离开。
         out-in：当前元素先进行过渡，完成之后新元素过渡进入。
      -->
-     <!-- appear属性为true时，第一次页面渲染也有动画效果 -->
-    <transition name="bounce" mode="out-in" appear>
-      <component :is="isShow ? 'home' : 'about'"></component>
+    <transition name="bounce" mode="in-out">
+      <h2 class="title" v-if="isShow">Hello World</h2>
+      <h2 class="title" v-else>你好啊，李银河</h2>
     </transition>
   </div>
 </template>
 
 <script>
-import Home from '@/01_动画的基本使用/pages/Home'
-import About from '@/01_动画的基本使用/pages/About'
 export default {
-  components: {
-    Home,
-    About
-  },
   data() {
     return {
       isShow: true,
